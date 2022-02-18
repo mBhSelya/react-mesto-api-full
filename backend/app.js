@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { celebrate, Joi, errors } = require('celebrate');
+const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const routes = require('./routes');
 const errorHandler = require('./middleware/error-handler');
@@ -20,6 +21,11 @@ const app = express();
 mongoose.connect(DB_ADDRESS, {
   useNewUrlParser: true,
 });
+
+app.use(cors({
+  origin: 'http://mesto.mbhselya.nomoredomains.xyz', // домен фронтенда
+  credentials: true,
+}));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
