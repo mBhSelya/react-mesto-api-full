@@ -86,7 +86,7 @@ class Api {
 }
 
 export const ApiConfig = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-27/',
+    baseUrl: 'mongodb://localhost:27017/mestodb',
     headers: {
         authorization: '2808c73a-a30b-458f-af2d-b76704edccd0',
         'Content-Type': 'application/json'
