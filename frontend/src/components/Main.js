@@ -5,7 +5,6 @@ import { UserContext } from "../context/CurrentUserContext";
 
 function Main(props) {
     const userData = useContext(UserContext);
-    console.log(userData);
     
     return(
         <>

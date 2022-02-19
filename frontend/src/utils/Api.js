@@ -96,7 +96,6 @@ class Api {
 export const ApiConfig = new Api({
     baseUrl: 'http://api.mesto.mbhselya.nomoredomains.xyz/',
     headers: {
-        authorization: '2808c73a-a30b-458f-af2d-b76704edccd0',
         'Content-Type': 'application/json'
     }
 });
