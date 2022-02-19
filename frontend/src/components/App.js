@@ -36,7 +36,7 @@ function App() {
             .catch((err) => {
                 console.log(err);
             })
-    }, [])
+    }, [loggedIn])
 
     useEffect(() => {
         ApiConfig.getInfoUser()
@@ -46,7 +46,7 @@ function App() {
             .catch((err) => {
                 console.log(err);
             })
-    }, [])
+    }, [loggedIn])
 
     function handleEditAvatarClick() {
         setEditAvatarPopupOpened(true);
@@ -150,7 +150,6 @@ function App() {
         Auth.authorize(email, password)
             .then((res) => {
                 tokenCheck();
-                history.push('/');
             })
             .catch((err) => {
                 setConfirmRegister(false);
@@ -174,6 +173,7 @@ function App() {
             .then((res) => {
                 setLoggedIn(true);
                 setEmailHeader(res.data[0].email);
+                setCurrentUser(res.data[0]);
                 history.push('/');
             })
             .catch((err) => {
