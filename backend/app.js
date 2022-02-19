@@ -9,12 +9,12 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 const routes = require('./routes');
 const errorHandler = require('./middleware/error-handler');
 const auth = require('./middleware/auth');
-
-const { PORT, DB_ADDRESS } = process.env;
 const {
   createUser,
   login,
 } = require('./controllers/users');
+
+const { PORT, DB_ADDRESS } = process.env;
 
 const urlPattern = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&\\'()*+,;=.]+$/;
 
