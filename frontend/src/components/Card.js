@@ -16,8 +16,8 @@ export default function Card(props) {
         props.onCardDelete(props.dataCard);
     }
 
-    const isOwn = props.dataCard.owner._id === userData._id;
-    const isLiked = props.dataCard.likes.some(i => i._id === userData._id);
+    const isOwn = props.dataCard.owner === userData._id;
+    const isLiked = props.dataCard.likes.some(i => i === userData._id);
 
     return(
         <article className="card">
