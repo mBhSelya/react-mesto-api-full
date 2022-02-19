@@ -10,16 +10,16 @@ export default function Header(props) {
         <header className="header">
             <a className="header__logo" href=" " target="_blank"> </a>
                 <Switch>
-                    <Route path="/sign-up">
+                    <Route path="/signup">
                         <Link className="header__button" to="/signin">Войти</Link>
                     </Route>
-                    <Route path="/sign-in">
+                    <Route path="/signin">
                         <Link className="header__button" to="/signup">Регистрация</Link>
                     </Route>
                     <Route path="/">
                         <div className="header__nav-bar">
                             <p className="header__email">{props.email}</p>
-                            <Link onClick={signOut} className="header__button header__button_exit" to="/sign-in">Выйти</Link>
+                            <Link onClick={signOut} className="header__button header__button_exit" to="/signin">Выйти</Link>
                         </div>
                     </Route>
                 </Switch>

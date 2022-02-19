@@ -26,7 +26,7 @@ export default function Register(props) {
                 <input onChange={handleEmail} value={email} className="auth__input" type="email" name="email" placeholder = "Email" minLength="2" maxLength="40" required />
                 <input onChange={handlePassword} value={password} className="auth__input" type="password" name="password" placeholder = "Пароль" minLength="2" maxLength="40" required />
                 <button className="auth__button-save">Зарегистрироваться</button>
-                <p className="auth__question">Уже Зарегистрированы?<Link to="/sign-in" className="auth__question-link" href="/">Войти</Link></p>
+                <p className="auth__question">Уже Зарегистрированы?<Link to="/signin" className="auth__question-link" href="/">Войти</Link></p>
             </fieldset>
         </form>
     )
