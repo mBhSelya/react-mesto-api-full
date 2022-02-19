@@ -150,11 +150,8 @@ function App() {
     function handleLogin(email, password) {
         Auth.authorize(email, password)
             .then((res) => {
-                if (res.token) {
-                    localStorage.setItem('jwt', res.token);
-                    tokenCheck();
-                    history.push('/');
-                }
+                tokenCheck();
+                history.push('/');
             })
             .catch((err) => {
                 setConfirmRegister(false);
@@ -174,18 +171,16 @@ function App() {
     }, [])
 
     function tokenCheck() {
-        const jwt = localStorage.getItem('jwt');
-        if (jwt) {
-            Auth.getContent(jwt)
-                .then((res) => {
-                    setLoggedIn(true);
-                    setEmailHeader(res.data.email);
-                    history.push('/');
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-        }
+        Auth.getContent()
+            .then((res) => {
+                setLoggedIn(true);
+                setEmailHeader(res.data.email);
+                history.push('/');
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        
     }
 
     useEffect(() => {
