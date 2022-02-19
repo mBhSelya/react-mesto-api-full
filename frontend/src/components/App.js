@@ -173,7 +173,7 @@ function App() {
     function tokenCheck() {
         Auth.getContent()
             .then((res) => {
-                console.log(res);
+                console.log(res.data.email);
                 setLoggedIn(true);
                 setEmailHeader(res.data.email);
                 history.push('/');
