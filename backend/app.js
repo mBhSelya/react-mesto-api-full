@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -8,7 +9,8 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 const routes = require('./routes');
 const errorHandler = require('./middleware/error-handler');
 const auth = require('./middleware/auth');
-const { PORT, DB_ADDRESS } = require('./config');
+
+const { PORT, DB_ADDRESS } = process.env;
 const {
   createUser,
   login,
