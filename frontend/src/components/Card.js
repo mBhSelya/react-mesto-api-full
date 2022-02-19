@@ -21,7 +21,7 @@ export default function Card(props) {
 
     return(
         <article className="card">
-            <button onClick = {handleCardDelete} className={`card__delete-button ${!isOwn && 'card__delete-button_owner'}`} type="button"></button>
+            <button onClick = {handleCardDelete} className={`card__delete-button ${isOwn && 'card__delete-button_owner'}`} type="button"></button>
             <img onClick = {handleClick} className="card__image" src={`${props.dataCard.link}`} alt={`${props.dataCard.name}`} />
             <div className="card__info">
                 <h2 className="card__title">{props.dataCard.name}</h2>
