@@ -17,7 +17,6 @@ export default function Card(props) {
     }
 
     const isOwn = props.dataCard.owner === userData._id;
-    console.log(isOwn);
     const isLiked = props.dataCard.likes.some(i => i === userData._id);
 
     return(
