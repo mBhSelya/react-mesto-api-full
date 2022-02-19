@@ -29,23 +29,27 @@ function App() {
     const history = useHistory();
 
     useEffect(() => {
-        ApiConfig.getInitialCards()
-            .then((res) => {
-                setCards(res);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+        if (loggedIn === true) {
+            ApiConfig.getInitialCards()
+                .then((res) => {
+                    setCards(res);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
     }, [loggedIn])
 
     useEffect(() => {
-        ApiConfig.getInfoUser()
-            .then((res) => {
-                setCurrentUser(res.data[0]);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+        if (loggedIn === true) {
+            ApiConfig.getInfoUser()
+                .then((res) => {
+                    setCurrentUser(res.data[0]);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
     }, [loggedIn])
 
     function handleEditAvatarClick() {
