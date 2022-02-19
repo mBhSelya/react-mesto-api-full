@@ -41,6 +41,7 @@ function App() {
     useEffect(() => {
         ApiConfig.getInfoUser()
             .then((res) => {
+                console.log(res);
                 setCurrentUser(res);
             })
             .catch((err) => {
@@ -79,6 +80,7 @@ function App() {
     function handleUpdateUser(obj) {
         ApiConfig.sendUserInfo(obj)
             .then((res) => {
+                console.log(res);
                 setCurrentUser(res);
                 closeAllPopups();
             })
@@ -90,6 +92,7 @@ function App() {
     function handleUpdateAvatar(link, func) {
         ApiConfig.editAvatar(link)
             .then((res) => {
+                console.log(res);
                 setCurrentUser(res);
                 closeAllPopups();
                 func();
@@ -173,9 +176,8 @@ function App() {
     function tokenCheck() {
         Auth.getContent()
             .then((res) => {
-                console.log(res.data[0].email);
                 setLoggedIn(true);
-                setEmailHeader(res.data.email);
+                setEmailHeader(res.data[0].email);
                 history.push('/');
             })
             .catch((err) => {
