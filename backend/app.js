@@ -25,7 +25,7 @@ mongoose.connect(DB_ADDRESS, {
 });
 
 app.use(cors({
-  origin: 'http://mesto.mbhselya.nomoredomains.xyz', // домен фронтенда
+  origin: 'http://mesto.mbhselya.nomoredomains.xyz',
   credentials: true,
 }));
 
