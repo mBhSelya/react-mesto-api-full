@@ -20,10 +20,10 @@ function deleteCard(req, res, next) {
       if (card.owner.equals(req.user._id)) {
         return next(new ForbiddenError('Недостаточно прав для удаления этой карточки'));
       }
-      return Card.findByIdAndDelete(cardId);
-    })
-    .then(() => {
-      res.status(200).send({ message: 'Карточка успешна удалена' });
+      return card.remove()
+        .then(() => {
+          res.status(200).send({ message: 'Карточка успешна удалена' });
+        });
     })
     .catch((err) => {
       if (err.name === 'CastError') {
