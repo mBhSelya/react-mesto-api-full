@@ -16,7 +16,7 @@ function getUsers(req, res, next) {
 function getMe(req, res, next) {
   return User
     .find(req.user)
-    .then((user) => res.status(200).send({ data: user }))
+    .then((user) => res.status(200).send(user))
     .catch(next);
 }
 
