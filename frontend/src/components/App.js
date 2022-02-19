@@ -138,7 +138,7 @@ function App() {
             .then(() => {
                 setConfirmRegister(true);
                 handleInfoTooltip();
-                history.push('/sign-in');
+                history.push('/signin');
             })
             .catch((err) => {
                 setConfirmRegister(false);
@@ -211,12 +211,12 @@ function App() {
                     onAddPlace={handleAddPlaceClick}
                     onEditAvatar={handleEditAvatarClick}
                 />
-                <Route path="/sign-up">
+                <Route path="/signup">
                     <Register 
                         onSubmit={handleRegister}
                     />
                 </Route>
-                <Route path="/sign-in">
+                <Route path="/signin">
                     <Login
                         onSubmit={handleLogin}
                     />
