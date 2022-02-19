@@ -41,8 +41,8 @@ function App() {
     useEffect(() => {
         ApiConfig.getInfoUser()
             .then((res) => {
-                console.log(res);
-                setCurrentUser(res);
+                console.log(res.data[0]);
+                setCurrentUser(res.data[0]);
             })
             .catch((err) => {
                 console.log(err);
