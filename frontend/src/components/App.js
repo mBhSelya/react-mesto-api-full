@@ -173,7 +173,7 @@ function App() {
     function tokenCheck() {
         Auth.getContent()
             .then((res) => {
-                console.log(res.data.email);
+                console.log(res);
                 setLoggedIn(true);
                 setEmailHeader(res.data.email);
                 history.push('/');
@@ -182,6 +182,11 @@ function App() {
                 console.log(err);
             })
     }
+
+    useEffect(() => {
+        tokenCheck();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     
     return (
         <UserContext.Provider value={currentUser}>
