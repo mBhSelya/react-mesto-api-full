@@ -4,7 +4,8 @@ const User = require('../models/user');
 const NotFoundError = require('../errors/not-found-error');
 const BadRequestError = require('../errors/bad-request-error');
 const ConflictError = require('../errors/conflict-error');
-const { JWT_SECRET } = require('../config');
+
+const { JWT_SECRET } = process.env;
 
 function getUsers(req, res, next) {
   return User
