@@ -41,7 +41,6 @@ function App() {
     useEffect(() => {
         ApiConfig.getInfoUser()
             .then((res) => {
-                console.log(res.data[0]);
                 setCurrentUser(res.data[0]);
             })
             .catch((err) => {
@@ -80,7 +79,6 @@ function App() {
     function handleUpdateUser(obj) {
         ApiConfig.sendUserInfo(obj)
             .then((res) => {
-                console.log(res);
                 setCurrentUser(res);
                 closeAllPopups();
             })
@@ -92,7 +90,6 @@ function App() {
     function handleUpdateAvatar(link, func) {
         ApiConfig.editAvatar(link)
             .then((res) => {
-                console.log(res);
                 setCurrentUser(res);
                 closeAllPopups();
                 func();
@@ -116,7 +113,7 @@ function App() {
 
     function handleCardLike(card) {
         const isLiked = card.likes.some(i => i._id === currentUser._id);
-        
+        console.log(isLiked);
         ApiConfig.changeLikeCardStatus(card._id, isLiked)
             .then((newCard) => {
                 setCards((prevCards) => prevCards.map((c) => c._id === card._id ? newCard : c));
