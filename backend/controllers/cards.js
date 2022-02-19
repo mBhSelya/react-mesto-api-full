@@ -17,14 +17,13 @@ function deleteCard(req, res, next) {
     .findById(cardId)
     .orFail(new NotFoundError(`Карточка с id ${cardId} не найдена`))
     .then((card) => {
-      console.log(card);
       if (card.owner.equals(req.user._id)) {
-        return next(new ForbiddenError('Недостаточно прав для удаления этой карточки'));
+        return card.remove()
+          .then(() => {
+            res.status(200).send({ message: 'Карточка успешна удалена' });
+          });
       }
-      return card.remove()
-        .then(() => {
-          res.status(200).send({ message: 'Карточка успешна удалена' });
-        });
+      return next(new ForbiddenError('Недостаточно прав для удаления этой карточки'));
     })
     .catch((err) => {
       if (err.name === 'CastError') {
