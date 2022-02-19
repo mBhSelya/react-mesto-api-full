@@ -126,6 +126,7 @@ function App() {
         ApiConfig.deleteCard(card._id)
             .then(() => {
                 setCards((prevCards) => prevCards.filter((c) => c._id !== card._id));
+                console.log(cards);
             })
             .catch((err) => {
                 console.log(err);
