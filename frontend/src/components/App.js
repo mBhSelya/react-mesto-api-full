@@ -221,7 +221,7 @@ function App() {
             </Route>
             </Switch>
             <Footer />
-            <EditProfilePopup
+            {/* <EditProfilePopup
                 onUpdateUser={handleUpdateUser} 
                 isOpen={editProfilePopupOpen} 
                 onClose={closeAllPopups} 
@@ -239,7 +239,7 @@ function App() {
             <ImagePopup
                 onClose={closeAllPopups}
                 card={selectedCard}
-            />
+            /> */}
         </UserContext.Provider>
     );
 }
