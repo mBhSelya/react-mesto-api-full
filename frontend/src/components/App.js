@@ -221,7 +221,7 @@ function App() {
             </Route>
             </Switch>
             <Footer />
-            {/* <EditProfilePopup
+            <EditProfilePopup
                 onUpdateUser={handleUpdateUser} 
                 isOpen={editProfilePopupOpen} 
                 onClose={closeAllPopups} 
@@ -236,7 +236,7 @@ function App() {
                 isOpen={addPlacePopupOpen}
                 onClose={closeAllPopups}
             />
-            <ImagePopup
+            {/* <ImagePopup
                 onClose={closeAllPopups}
                 card={selectedCard}
             /> */}
