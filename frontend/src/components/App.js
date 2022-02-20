@@ -202,7 +202,7 @@ function App() {
                 email={emailHeader}
             />
             <Switch>
-                {/* <ProtectedRoute 
+                <ProtectedRoute 
                     exact path="/"
                     loggedIn={loggedIn}
                     component={Main}
@@ -213,7 +213,7 @@ function App() {
                     onEditProfile={handleEditProfileClick}
                     onAddPlace={handleAddPlaceClick}
                     onEditAvatar={handleEditAvatarClick}
-                /> */}
+                />
                 <Route path="/signup">
                     <Register 
                         onSubmit={handleRegister}
