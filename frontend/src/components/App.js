@@ -186,10 +186,10 @@ function App() {
             })
     }
 
-    /* useEffect(() => {
+    useEffect(() => {
         tokenCheck();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []) */
+    }, [])
     
     return (
         <UserContext.Provider value={currentUser}>
@@ -198,9 +198,9 @@ function App() {
                 onClose={closeAllPopups}
                 isConfirm={confirmRegister}
             />
-            <Header 
+            {/* <Header 
                 email={emailHeader}
-            />
+            /> */}
             <Switch>
                 <ProtectedRoute 
                     exact path="/"
