@@ -189,6 +189,7 @@ function App() {
     console.log(loggedIn);
 
     useEffect(() => {
+        history.push('/');
         if (loggedIn === true) {
             tokenCheck();
         }
