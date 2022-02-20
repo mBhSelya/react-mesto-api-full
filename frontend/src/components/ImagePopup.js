@@ -1,4 +1,5 @@
 export default function ImagePopup(props) {
+    console.log(props.card.link);
     return(
         <div className={`popup ${props.card.name && 'popup_opened'}`} id="open-image">
             <form className="popup__container-image" name="open-image">

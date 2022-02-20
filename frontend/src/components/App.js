@@ -154,6 +154,7 @@ function App() {
     function handleLogin(email, password) {
         Auth.authorize(email, password)
             .then((res) => {
+                setLoggedIn(true);
                 tokenCheck();
             })
             .catch((err) => {
@@ -176,7 +177,6 @@ function App() {
     function tokenCheck() {
         Auth.getContent()
             .then((res) => {
-                setLoggedIn(true);
                 setEmailHeader(res.data[0].email);
                 setCurrentUser(res.data[0]);
                 history.push('/');
@@ -185,6 +185,13 @@ function App() {
                 console.log(err);
             })
     }
+
+    useEffect(() => {
+        if (loggedIn === true) {
+            tokenCheck();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     
     return (
         <UserContext.Provider value={currentUser}>
@@ -236,10 +243,10 @@ function App() {
                 isOpen={addPlacePopupOpen}
                 onClose={closeAllPopups}
             />
-            {/* <ImagePopup
+            <ImagePopup
                 onClose={closeAllPopups}
                 card={selectedCard}
-            /> */}
+            />
         </UserContext.Provider>
     );
 }
