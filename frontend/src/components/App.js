@@ -186,10 +186,10 @@ function App() {
             })
     }
 
-    useEffect(() => {
+    /* useEffect(() => {
         tokenCheck();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, []) */
     
     return (
         <UserContext.Provider value={currentUser}>
