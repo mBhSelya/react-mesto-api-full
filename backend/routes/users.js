@@ -6,6 +6,7 @@ const {
   updateUser,
   updateAvatar,
   getMe,
+  logOut,
 } = require('../controllers/users');
 
 const urlPattern = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&\\'()*+,;=.]+$/;
@@ -31,5 +32,7 @@ router.patch('/users/me/avatar', celebrate({
     avatar: Joi.string().pattern(urlPattern).required(),
   }),
 }), updateAvatar);
+
+router.get('/signout', logOut);
 
 module.exports = router;

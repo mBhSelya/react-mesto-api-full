@@ -123,6 +123,10 @@ function login(req, res, next) {
     .catch(next);
 }
 
+function logOut(req, res) {
+  res.status(200).clearCookie('jwt').send({ message: 'Выход' });
+}
+
 module.exports = {
   getUsers,
   getUser,
@@ -131,4 +135,5 @@ module.exports = {
   updateAvatar,
   login,
   getMe,
+  logOut,
 };
