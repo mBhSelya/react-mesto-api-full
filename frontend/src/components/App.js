@@ -154,7 +154,7 @@ function App() {
     function handleLogin(email, password) {
         Auth.authorize(email, password)
             .then((res) => {
-                setLoggedIn(true);
+                
                 tokenCheck();
             })
             .catch((err) => {
@@ -177,6 +177,7 @@ function App() {
     function tokenCheck() {
         Auth.getContent()
             .then((res) => {
+                setLoggedIn(true);
                 setEmailHeader(res.data[0].email);
                 setCurrentUser(res.data[0]);
                 history.push('/');
@@ -186,10 +187,7 @@ function App() {
             })
     }
 
-    console.log(loggedIn);
-
     useEffect(() => {
-        history.push('/');
         if (loggedIn === true) {
             tokenCheck();
         }
