@@ -186,12 +186,14 @@ function App() {
             })
     }
 
+    console.log(loggedIn);
+
     useEffect(() => {
         if (loggedIn === true) {
             tokenCheck();
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [loggedIn])
     
     return (
         <UserContext.Provider value={currentUser}>
